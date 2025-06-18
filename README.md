@@ -16,3 +16,25 @@ Setup Instructions
 git clone https://github.com/prajitha18/leetcode-notes-generator.git
 cd leetcode-notes-generator
 python main.py
+---
+
+Why This Project?
+Most students only solve problems. This tool helps me:
+
+-   Document my solutions smartly  
+-   Revise faster  
+-   Share organized notes on GitHub  
+
+> This is part of my journey toward FAANG internships (2026).
+
+---
+
+##  Want to Contribute?
+
+You can help improve this by adding:
+
+-  Web scraping from LeetCode  
+-  GUI to select problems  
+-  Auto-upload to GitHub  
+
+Fork it, build it, and raise a PR!
