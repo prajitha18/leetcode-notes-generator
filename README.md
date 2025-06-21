@@ -38,3 +38,43 @@ You can help improve this by adding:
 -  Auto-upload to GitHub  
 
 Fork it, build it, and raise a PR!
+---
+
+## GUI Version
+
+If you prefer a graphical interface:
+
+### How to Use:
+
+```bash
+python gui_main.py
+```
+
+This will open a window where you can:
+
+- Select `.txt` problem files
+- Preview the content
+- Convert to clean Markdown format
+
+Make sure your `.txt` files follow this format:
+
+```
+Topic: Arrays
+Problem: ...
+Approach: ...
+Code: ...
+```
+
+### File Example:
+
+```
+leetcode-notes-generator/
+├── gui_main.py
+├── main.py
+├── sample_inputs/
+│   └── example1.txt
+├── outputs/
+│   └── Arrays/
+│       └── example1.md
+└── README.md
+```
