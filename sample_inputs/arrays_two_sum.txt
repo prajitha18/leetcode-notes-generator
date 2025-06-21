@@ -1,18 +1,12 @@
-# Problem
+Topic: Arrays
 
+Problem:
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
----
-
-## Approach
-
+Approach:
 Use a hashmap to store the difference and index while iterating through the array.
 
----
-
-## Code
-
-```python
+Code:
 def twoSum(nums, target):
     hashmap = {}
     for i, num in enumerate(nums):
@@ -20,4 +14,3 @@ def twoSum(nums, target):
         if diff in hashmap:
             return [hashmap[diff], i]
         hashmap[num] = i
-```
