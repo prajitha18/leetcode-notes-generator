@@ -1,0 +1,4 @@
+# Ignore generated output folders
+outputs/
+__pycache__/
+*.pyc

@@ -1,4 +1,5 @@
-
+import subprocess
+import datetime
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
@@ -26,7 +27,7 @@ def write_markdown(file_name, topic, problem, approach, code):
     return output_path
 
 def browse_file():
-    filepath = filedialog.askopenfilename(initialdir="sample_inputs", title="Select Input File", filetypes=[("Text Files", "*.txt")])
+    filepath = filedialog.askopenfilename(initialdir=INPUT_FOLDER, title="Select Input File", filetypes=[("Text Files", "*.txt")])
     if filepath:
         file_label.config(text=filepath)
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -53,6 +54,16 @@ def convert_file():
     output_path = write_markdown(filename, topic, problem, approach, code)
     messagebox.showinfo("Success", f"Markdown created at:\n{output_path}")
 
+def push_to_github():
+    try:
+        commit_message = f"Auto: Add notes - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        messagebox.showinfo("Success", "Changes pushed to GitHub!")
+    except subprocess.CalledProcessError as e:
+        messagebox.showerror("Git Error", f"Failed to push:\n{e}")
+
 # GUI Setup
 root = tk.Tk()
 root.title("LeetCode Notes Generator")
@@ -72,5 +83,8 @@ text_preview.pack(pady=10)
 
 convert_button = tk.Button(root, text="Convert to Markdown", command=convert_file, state=tk.DISABLED)
 convert_button.pack()
+
+push_button = tk.Button(root, text="Push to GitHub", command=push_to_github)
+push_button.pack(pady=5)
 
 root.mainloop()
