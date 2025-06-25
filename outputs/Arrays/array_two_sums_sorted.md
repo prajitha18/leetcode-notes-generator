@@ -1,0 +1,26 @@
+# Problem
+
+Given a sorted array and a target value, return the indices of the two numbers such that they add up to the target.
+
+---
+
+## Approach
+
+Use two pointers from start and end since the array is sorted.
+
+---
+
+## Code
+
+```python
+def twoSum(arr, target):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        total = arr[left] + arr[right]
+        if total == target:
+            return [left, right]
+        elif total < target:
+            left += 1
+        else:
+            right -= 1
+```
