@@ -1,0 +1,18 @@
+Topic: Arrays
+
+Problem:
+Given a sorted array, remove the duplicates in-place such that each element appears only once and return the new length. Do not allocate extra space for another array; you must do this by modifying the input array in-place.
+
+Approach:
+We use the two-pointer technique. The `left` pointer will track the position of the last unique element found, and the `right` pointer scans through the array. If `arr[right] != arr[left]`, we increment `left` and set `arr[left] = arr[right]`. Finally, return `left + 1` as the count of unique elements.
+
+Code:
+def remove_duplicates(arr):
+    if not arr:
+        return 0
+    left = 0
+    for right in range(1, len(arr)):
+        if arr[right] != arr[left]:
+            left += 1
+            arr[left] = arr[right]
+    return left + 1
